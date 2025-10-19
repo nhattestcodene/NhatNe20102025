@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💌 Chúc Mừng 20/10 💖</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === PHONG BAO === */
+.envelope {
+  position: relative;
+  width: 260px;
+  height: 160px;
+  background: #ff6b81;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: opacity 1s ease;
+}
+.envelope::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  top: 0;
+  left: 0;
+  border-radius: 6px 6px 0 0;
+}
+.envelope.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+/* === LÁ THƯ === */
+.letter {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  text-align: center;
+  transform: scale(0.3) translateY(100px);
+  transition: all 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.letter.show {
+  width: 340px;
+  height: 250px;
+  opacity: 1;
+  transform: scale(1) translateY(-150px);
+  padding: 25px;
+}
+
+/* === NỘI DUNG === */
+h2 {
+  color: #ff6b81;
+  font-size: 22px;
+  margin-bottom: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+}
+.letter.show h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+.message {
+  color: #444;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+.letter.show .message {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === CHỮ KÝ === */
+.signature {
+  font-family: 'Brush Script MT', 'Dancing Script', cursive;
+  font-size: 22px;
+  color: #ff6b81;
+  position: absolute;
+  bottom: 15px;
+  right: 25px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 1.5s ease;
+}
+.letter.show .signature {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TIM BAY === */
+.heart {
+  position: absolute;
+  bottom: -10px;
+  color: rgba(255, 100, 130, 0.7);
+  font-size: 20px;
+  animation: floatUp 5s linear infinite;
+  opacity: 0.8;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-800px) scale(1.5);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" id="envelope"></div>
+
+<div class="letter" id="letter">
+  <h2>💌 Chúc Mừng 20/10 💖</h2>
+  <div class="message" id="message">
+    Gửi đến bạn những lời chúc ngọt ngào và yêu thương nhất 💐  
+    Chúc bạn luôn xinh đẹp, rạng rỡ và hạnh phúc trọn vẹn mỗi ngày! 🌸  
+    Cảm ơn bạn vì đã luôn là người tuyệt vời nhất 💕  
+  </div>
+  <div class="signature">— Nhật Nè ✍️</div>
+</div>
+
+<audio id="music" loop>
+  <source src="https://webchuyen053-cmyk.github.io/Music/beta.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letter");
+const music = document.getElementById("music");
+
+envelope.addEventListener("click", () => {
+  envelope.classList.add("hide");
+  letter.classList.add("show");
+  music.play().catch(()=>{});
+});
+
+// Tim bay nền ❤️
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.textContent = "❤";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 600);
+</script>
+
+</body>
+</html>
