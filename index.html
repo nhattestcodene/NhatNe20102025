@@ -49,6 +49,24 @@ body {
 }
 
 
+  .seal-heart {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+  z-index: 2;
+  animation: pulse 1.4s infinite;
+}
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.2); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+  
 .letter {
   position: absolute;
   width: 0;
@@ -156,7 +174,9 @@ h2 {
 </head>
 <body>
 
-<div class="envelope" id="envelope"></div>
+<div class="envelope" id="envelope">
+  <div class="seal-heart">😻</div>
+</div>
 
 <div class="letter" id="letter">
 
