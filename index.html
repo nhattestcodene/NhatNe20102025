@@ -31,7 +31,6 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   transition: opacity 1s ease;
 }
-
 .envelope::before {
   content: '';
   position: absolute;
@@ -47,24 +46,6 @@ body {
   opacity: 0;
   pointer-events: none;
   transition: opacity 1.5s ease;
-}
-
-
-.seal-heart {
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20px;
-  color: #fff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.8);
-  z-index: 2;
-  animation: pulse 1.4s infinite;
-}
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.2); }
-  100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 
@@ -90,6 +71,7 @@ body {
   padding: 25px;
 }
 
+
 h2 {
   color: #ff6b81;
   font-size: 22px;
@@ -114,6 +96,8 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
+
+
 .signature {
   font-family: 'Brush Script MT', 'Dancing Script', cursive;
   font-size: 22px;
@@ -140,71 +124,7 @@ h2 {
   opacity: 0.8;
 }
 @keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
-}
-
-
-.corner-gif {
-  position: absolute;
-  width: 85px;
-  height: auto;
-  z-index: 10;
-  pointer-events: none;
-}
-.left-gif { top: 10px; left: 10px; }
-.right-gif { top: 10px; right: 10px; }
-</style>
-</head>
-<body>
-
-
-<div class="envelope" id="envelope">
-  <div class="seal-heart">😻</div>
-</div>
-
-
-<div class="letter" id="letter">
-  <img src="mewmew.gif" alt="flower left" class="corner-gif left-gif">
-  <h2>💌 Chúc Mừng 20/10 💖</h2>
-  <div class="message" id="message">
-    Gửi đến bạn những lời chúc ngọt ngào và yêu thương nhất 💐  
-    Chúc bạn luôn xinh đẹp, rạng rỡ và hạnh phúc trọn vẹn mỗi ngày! 🌸  
-    Cảm ơn bạn vì đã luôn là người tuyệt vời nhất 💕  
-  </div>
-  <div class="signature">— Nhật Nè ✍️</div>
-</div>
-
-
-<audio id="music" loop>
-  <source src="https://nhattestcodene.github.io/Music/beta.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const envelope = document.getElementById("envelope");
-const letter = document.getElementById("letter");
-const music = document.getElementById("music");
-
-envelope.addEventListener("click", () => {
-  envelope.classList.add("hide");
-  letter.classList.add("show");
-  music.play().catch(()=>{});
-});
-
-function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.textContent = "❤";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 600);
-</script>
-
-</body>
-</html>
+  0% {
     transform: translateY(0) scale(1);
     opacity: 1;
   }
